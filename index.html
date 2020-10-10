@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nicolas Lucca - El Todologo del pueblo</title>
+  </head>
+  <body>
+    <!-- page content -->
+    <h2>TODOLOGO CREATOR</h2>
+    <div class="image" >
+        <img id="source" src="./nicoluccatodologo.jpg" alt=""/>
+    </div>
+    <div class="text"> 
+        <input type="text" id="label" maxlength="140" />
+    </div>
+    <button onclick="createImage();">
+        Crear!
+    </button>
+
+    <div class="result">
+        <canvas id="result" ></canvas>
+    </div>
+
+    <script>
+        function createImage() {
+            var text = document.getElementById('label').value;
+            makeQRImage(text);
+        }
+        function makeQRImage(text) {
+            var canvas = document.getElementById('result');
+            var context = canvas.getContext('2d');
+            var img = document.getElementById('source');
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+            
+            context.globalAlpha = 1.0;
+            context.drawImage(img, 0, 0, img.clientWidth, img.clientHeight);
+
+            context.globalAlpha = 1;
+            context.font = 'normal 14px Arial';
+            context.textAlign = 'left';
+            context.fillStyle = 'white';
+            context.fillText(`"${text}"`, img.clientWidth/4 + 15, img.clientHeight*.88);
+        }
+    </script>
+    <style>
+        .image, .text {
+            width: 500px;
+            margin: 20px 0;
+        }
+        .image img, .text input {
+            width: 100%;
+        }
+        
+        input {
+            margin: 20px 0;
+            padding: 10px 20px;
+            
+        }
+        button {
+            
+        }
+    </style>
+  </body>
+</html>
