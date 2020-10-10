@@ -11,7 +11,7 @@
         <img id="source" src="./nicoluccatodologo.jpg" alt=""/>
     </div>
     <div class="text"> 
-        <input type="text" id="label" maxlength="140" />
+        <input type="text" id="label" maxlength="37" />
     </div>
     <button onclick="createImage();">
         Crear!
@@ -37,7 +37,7 @@
             context.drawImage(img, 0, 0, img.clientWidth, img.clientHeight);
 
             context.globalAlpha = 1;
-            context.font = 'normal 14px Arial';
+            context.font = 'normal 12px Arial';
             context.textAlign = 'left';
             context.fillStyle = 'white';
             context.fillText(`"${text}"`, img.clientWidth/4 + 15, img.clientHeight*.88);
